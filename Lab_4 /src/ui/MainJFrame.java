@@ -1,0 +1,360 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ui;
+
+import model.City;
+import model.EncounterHistory;
+import model.Patient;
+import model.PatientDirectory;
+import model.Person;
+import model.PersonDirectory;
+import model.VitalSigns;
+
+/**
+ *
+ * @author jharnadoda
+ */
+public class MainJFrame extends javax.swing.JFrame {
+
+    /**
+     * Creates new form MainJFrame
+     */
+    PersonDirectory personDirect;
+    PatientDirectory pd;
+    EncounterHistory encounterHist;
+    City city;
+    
+    public MainJFrame() {
+        initComponents();
+        
+        this.personDirect = new PersonDirectory();
+        this.pd = new PatientDirectory();
+        this.encounterHist = new EncounterHistory();
+        this.city = new City(pd);
+        
+        Person person = personDirect.addNewPerson();
+        
+        person.setFirstName("Jharna");
+        person.setLastName("Doda");
+        person.setAge(22);
+        person.setPhNumber("8577639066");
+        person.setBlood("B+");
+        person.getAddress().setStreet("Boylston");
+        person.getAddress().setCity("Boston");
+        person.getAddress().setState("MA");
+        person.getAddress().setZipcode("02215");
+        
+        Patient patient = pd.addNewPatient(person);        
+        VitalSigns vitals = pd.getPatientDetails().get(person.getFirstName()).addNewVitals();       
+      
+        
+        vitals.setHeartRate(66);
+        vitals.setWeight(78);
+        vitals.setsBloodPressure(119);
+        vitals.setdBloodPressure(79);
+        
+        Person person1 = personDirect.addNewPerson();
+        
+        person1.setFirstName("Saloni");
+        person1.setLastName("Sankhe");
+        person1.setAge(23);
+        person1.setPhNumber("5678987654");
+        person1.setBlood("O+ve");  
+        person1.getAddress().setStreet("Boylston");
+        person1.getAddress().setCity("Boston");
+        person1.getAddress().setState("MA");
+        person1.getAddress().setZipcode("02215");
+        
+        Patient patient1 = pd.addNewPatient(person1);        
+        VitalSigns vitals1 = pd.getPatientDetails().get(person1.getFirstName()).addNewVitals();       
+      
+        
+        vitals1.setHeartRate(99);
+        vitals1.setWeight(88);
+        vitals1.setsBloodPressure(101);
+        vitals1.setdBloodPressure(77);
+        
+        Person person2 = personDirect.addNewPerson();
+       
+        person2.setFirstName("Ashish");
+        person2.setLastName("Kothari");
+        person2.setAge(24);
+        person2.setPhNumber("7899766668");
+        person2.setBlood("A+");  
+        person2.getAddress().setStreet("Thornton");
+        person2.getAddress().setCity("Boston");
+        person2.getAddress().setState("MA");
+        person2.getAddress().setZipcode("02215");
+        
+        Patient patient2 = pd.addNewPatient(person2);        
+        VitalSigns vitals2 = pd.getPatientDetails().get(person2.getFirstName()).addNewVitals();       
+      
+        
+        vitals2.setHeartRate(88);
+        vitals2.setWeight(69);
+        vitals2.setsBloodPressure(111);
+        vitals2.setdBloodPressure(77);
+        
+        Person person3 = personDirect.addNewPerson();
+       
+        person3.setFirstName("Pooja");
+        person3.setLastName("Pathai");
+        person3.setAge(25);
+        person3.setPhNumber("9920293095");
+        person3.setBlood("AB+");  
+        person3.getAddress().setStreet("Boylston");
+        person3.getAddress().setCity("Boston");
+        person3.getAddress().setState("MA");
+        person3.getAddress().setZipcode("02221");
+        
+        Patient patient3 = pd.addNewPatient(person3);        
+        VitalSigns vitals3 = pd.getPatientDetails().get(person3.getFirstName()).addNewVitals();       
+      
+        
+        vitals3.setHeartRate(90);
+        vitals3.setWeight(77);
+        vitals3.setsBloodPressure(111);
+        vitals3.setdBloodPressure(65);
+        
+        Person person4 = personDirect.addNewPerson();
+        
+        person3.setFirstName("Vijay");
+        person3.setLastName("Doda");
+        person3.setAge(50);
+        person3.setPhNumber("9920293095");
+        person3.setBlood("A+");  
+        person3.getAddress().setStreet("Boylston");
+        person3.getAddress().setCity("Boston");
+        person3.getAddress().setState("MA");
+        person3.getAddress().setZipcode("02221");
+        
+        Patient patient4 = pd.addNewPatient(person3);        
+        VitalSigns vitals4 = pd.getPatientDetails().get(person3.getFirstName()).addNewVitals();       
+      
+        
+        vitals3.setHeartRate(77);
+        vitals3.setWeight(90);
+        vitals4.setsBloodPressure(101);
+        vitals4.setdBloodPressure(61);
+        
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jSplitPane1 = new javax.swing.JSplitPane();
+        CreateArea = new javax.swing.JPanel();
+        btnCreatePerson = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
+        btnCheckVitals = new javax.swing.JButton();
+        btnEncounterDetails = new javax.swing.JButton();
+        btnCommunity = new javax.swing.JButton();
+        WorkArea = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        CreateArea.setBackground(new java.awt.Color(51, 51, 51));
+
+        btnCreatePerson.setText("Add Person Details");
+        btnCreatePerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreatePersonActionPerformed(evt);
+            }
+        });
+
+        btnView.setText("View Person Details");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
+
+        btnCheckVitals.setText("Add Encounter Details (Vitals)");
+        btnCheckVitals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckVitalsActionPerformed(evt);
+            }
+        });
+
+        btnEncounterDetails.setText("Check Encounter Details");
+        btnEncounterDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncounterDetailsActionPerformed(evt);
+            }
+        });
+
+        btnCommunity.setText("Check for Community");
+        btnCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCommunityActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout CreateAreaLayout = new javax.swing.GroupLayout(CreateArea);
+        CreateArea.setLayout(CreateAreaLayout);
+        CreateAreaLayout.setHorizontalGroup(
+            CreateAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CreateAreaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(CreateAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCreatePerson, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEncounterDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addComponent(btnCheckVitals, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        CreateAreaLayout.setVerticalGroup(
+            CreateAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CreateAreaLayout.createSequentialGroup()
+                .addContainerGap(184, Short.MAX_VALUE)
+                .addComponent(btnCreatePerson)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnView)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCheckVitals)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEncounterDetails)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCommunity)
+                .addGap(243, 243, 243))
+        );
+
+        jSplitPane1.setLeftComponent(CreateArea);
+
+        WorkArea.setBackground(new java.awt.Color(204, 204, 255));
+        WorkArea.setForeground(new java.awt.Color(204, 204, 255));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Vitals Check System");
+
+        javax.swing.GroupLayout WorkAreaLayout = new javax.swing.GroupLayout(WorkArea);
+        WorkArea.setLayout(WorkAreaLayout);
+        WorkAreaLayout.setHorizontalGroup(
+            WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(WorkAreaLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+        WorkAreaLayout.setVerticalGroup(
+            WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(WorkAreaLayout.createSequentialGroup()
+                .addGap(216, 216, 216)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(227, Short.MAX_VALUE))
+        );
+
+        jSplitPane1.setRightComponent(WorkArea);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSplitPane1)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSplitPane1)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCreatePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePersonActionPerformed
+        // TODO add your handling code here:
+        
+        CreatePersonJPanel getPersonPanel = new CreatePersonJPanel(personDirect,pd,encounterHist,city);
+        jSplitPane1.setRightComponent(getPersonPanel);
+    }//GEN-LAST:event_btnCreatePersonActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        // TODO add your handling code here:
+        
+        ViewJPanel getPersonPanel = new ViewJPanel(personDirect,pd,encounterHist);
+        jSplitPane1.setRightComponent(getPersonPanel);
+    }//GEN-LAST:event_btnViewActionPerformed
+
+    private void btnCheckVitalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckVitalsActionPerformed
+        // TODO add your handling code here:
+        
+        TakeVitalsJPanel getVitalsPanel = new TakeVitalsJPanel(personDirect,pd,encounterHist);
+        jSplitPane1.setRightComponent(getVitalsPanel);
+        
+    }//GEN-LAST:event_btnCheckVitalsActionPerformed
+
+    private void btnCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityActionPerformed
+        // TODO add your handling code here:
+        
+        CheckCommunityJPanel getVitalDetailsPanel = new CheckCommunityJPanel(personDirect,pd,encounterHist,city);
+        jSplitPane1.setRightComponent(getVitalDetailsPanel);
+        
+    }//GEN-LAST:event_btnCommunityActionPerformed
+
+    private void btnEncounterDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncounterDetailsActionPerformed
+        // TODO add your handling code here:
+
+        EncounterDetailsJPanel getEncounterDetailsPanel = new EncounterDetailsJPanel(personDirect,pd,encounterHist);
+        jSplitPane1.setRightComponent(getEncounterDetailsPanel);
+
+    }//GEN-LAST:event_btnEncounterDetailsActionPerformed
+
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainJFrame().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel CreateArea;
+    private javax.swing.JPanel WorkArea;
+    private javax.swing.JButton btnCheckVitals;
+    private javax.swing.JButton btnCommunity;
+    private javax.swing.JButton btnCreatePerson;
+    private javax.swing.JButton btnEncounterDetails;
+    private javax.swing.JButton btnView;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JSplitPane jSplitPane1;
+    // End of variables declaration//GEN-END:variables
+}
